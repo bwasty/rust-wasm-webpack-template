@@ -12,7 +12,8 @@ module.exports = {
             loader: 'rust-wasm-loader',
             options: {
               // The path to the webpack output relative to the project root
-              path: ''
+              path: '',
+              release: false, // TODO!!!: prod switch... / incremental compilation?
             }
           }
         }
