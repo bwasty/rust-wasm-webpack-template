@@ -6,5 +6,10 @@ fn main() {
 // must be marked as no_mangle
 #[no_mangle]
 pub fn multiply(a: i32, b: i32) -> i32 {
-    return a * b
+    a * b
+}
+
+#[no_mangle]
+pub fn sqrt(a: f64) -> f64 {
+    a.sqrt()
 }
