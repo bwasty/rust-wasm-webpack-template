@@ -6,12 +6,15 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --progress"
+    "build": "webpack --progress --env.production",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "Unlicense",
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "rust-wasm-loader": "^0.1.2",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   }

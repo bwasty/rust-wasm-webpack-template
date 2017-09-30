@@ -1,3 +1,5 @@
 /target/
 **/*.rs.bk
-build
+dist/*.js
+dist/*.wasm
+dist/*.map
