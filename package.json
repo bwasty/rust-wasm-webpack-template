@@ -1,0 +1,18 @@
+{
+  "name": "rust-wasm-webpack-template",
+  "repository": "bwasty/rust-wasm-template",
+  "version": "0.1.0",
+  "description": "Small template for compiling Rust to WebAssembly with webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --progress"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "devDependencies": {
+    "rust-wasm-loader": "^0.1.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
