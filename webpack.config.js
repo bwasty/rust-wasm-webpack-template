@@ -95,7 +95,7 @@ module.exports = env => {
     devServer: {
       contentBase: __dirname + "/dist/",
       overlay: true,    // shows Rust compiler errors in the browser
-      open: true,       // opens http://localhost:8080 in browser
+      open: false,       // opens http://localhost:8080 in browser
       compress: false,  // gzip compression
     }
   }

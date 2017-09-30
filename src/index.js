@@ -12,7 +12,8 @@ wasm.initialize({noExitRuntime: true}).then(module => {
     .then(response => response.arrayBuffer())
     .then(arrayBuffer => {
       window.glb = new Uint8Array(arrayBuffer);
-      console.log("loaded Box.glb into window.glb", window.glb);
-      console.log(frobnicate(glb, glb.length))
+      let result = frobnicate(glb, glb.length);
+      document.body.innerHTML =
+        `<pre style="white-space: pre-wrap; word-break: keep-all;">${result}</pre>`;
     })
 })
