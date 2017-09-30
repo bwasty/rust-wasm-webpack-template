@@ -2,3 +2,4 @@
 **/*.rs.bk
 dist/*.js
 dist/*.wasm
+dist/*.map
