@@ -31,7 +31,7 @@ module.exports = env => {
       'path': true,
 
       // TODO!: This list was manually extracted from bundle.js.map with the help of
-      // `source-map-explorer`. It saves 284KB in the final bundle. How to do this better?
+      // `source-map-explorer`. It saves >200KB in the final bundle. How to do this better?
       // Shouln't tree shaking take care of it?
       "asn1.js": true,
       // "base64-js": true,
@@ -53,14 +53,14 @@ module.exports = env => {
       "des.js": true,
       "diffie-hellman": true,
       "elliptic": true,
-      "events": true,
+      // "events": true,
       "evp_bytestokey": true,
       "hash-base": true,
       "hash.js": true,
       "hmac-drbg": true,
       // "ieee754": true,
       "indexof": true,
-      "inherits": true,
+      // "inherits": true,
       // "isarray": true,
       "md5.js": true,
       "miller-rabin": true,
@@ -84,11 +84,11 @@ module.exports = env => {
       "vm-browserify": true,
     },
 
-    plugins: [
+    plugins: env.production ? [
       new UglifyJSPlugin({
         sourceMap: true
       })
-    ],
+    ] : [],
 
     // devtool: 'source-map',
 
