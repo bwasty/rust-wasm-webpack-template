@@ -1,8 +1,11 @@
-module.exports = {
+module.exports = env => {
+  // TODO!!: real production build (minify)
+  env = env || {} // undefined if webpack called without `--env`
+  return {
     entry: './src/index.js',
     output: {
       filename: 'bundle.js',
-      path: __dirname + '/build',
+      path: __dirname + '/dist',
     },
     module: {
       rules: [
@@ -13,7 +16,7 @@ module.exports = {
             options: {
               // The path to the webpack output relative to the project root
               path: '',
-              release: false, // TODO!!!: prod switch... / incremental compilation?
+              // release: env.production,
             }
           }
         }
@@ -25,5 +28,13 @@ module.exports = {
     externals: {
       'fs': true,
       'path': true,
+    },
+
+    devServer: {
+      contentBase: __dirname + "/dist/",
+      overlay: true,    // shows Rust compiler errors in the browser
+      open: true,       // opens http://localhost:8080 in browser
+      compress: false,  // gzip compression
     }
   }
+}
