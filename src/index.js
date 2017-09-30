@@ -2,13 +2,17 @@ const wasm = require('./main.rs')
 
 wasm.initialize({noExitRuntime: true}).then(module => {
   // Create a Javascript wrapper around our Rust function
-  window.multiply = module.cwrap('multiply', 'number', ['number', 'number'])
-  window.sqrt = module.cwrap('sqrt', 'number', ['number'])
+  window.frobnicate = module.cwrap('frobnicate', 'string', [
+    'array',
+    'number'
+  ])
 
-  document.body.innerHTML = `Calling Rust multiply(7, 6)<br>${multiply(7, 6)}`
-
-  // floats are truncated to i32s
-  console.log("multiply(2.9, 3) = ", multiply(2.9, 3)) // -> 6
-
-  console.log("sqrt(2) = ", sqrt(2))
+  let url = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Box/glTF-Binary/Box.glb"
+  fetch(url)
+    .then(response => response.arrayBuffer())
+    .then(arrayBuffer => {
+      window.glb = new Uint8Array(arrayBuffer);
+      console.log("loaded Box.glb into window.glb", window.glb);
+      console.log(frobnicate(glb, glb.length))
+    })
 })
